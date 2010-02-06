@@ -10,6 +10,7 @@ require_once('includes/base.inc.php');
 Class Dispatcher {
 		
 	private $patterns;
+	private $db;
 	
 	/**
 	 * 
@@ -19,7 +20,8 @@ Class Dispatcher {
 	 *    - array  $params (any key/value pairs that will be passed to the controler function)
 	 * @return void
 	 */	
-	function Dispatcher($patterns) {
+	function Dispatcher($db, $patterns) {
+		$this->db = $db;
 		$this->patterns = $patterns;
 	}
 	
@@ -95,7 +97,8 @@ Class Dispatcher {
 	    $obj = file_to_class($location[0]);
 	    $function = $location[1];
 	    $refl = new ReflectionMethod($obj,$function);
-	    echo $refl->invokeArgs(new $obj(),$route[2]);
+	    
+	    echo $refl->invokeArgs(new $obj($this->db),$route[2]);
 	    //return $obj->$function();
 	    //call_user_func_array($location[1],$route[2]);
 	}

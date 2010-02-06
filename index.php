@@ -4,7 +4,9 @@
 
 require_once('control/dispatcher.php');
 
-$dispatcher = new Dispatcher(array(
+$db = new Datasource(DB_HOST, DB_NAME, DB_USER, DB_PASS);
+
+$dispatcher = new Dispatcher($db, array(
 	        array('^login$','autenticate::login',array()),
 	        array('^(?<name>\w*)$','test_control::index',array()),
 	        array('^all$','todo::all',array()),
