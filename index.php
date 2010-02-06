@@ -5,6 +5,7 @@
 require_once('control/dispatcher.php');
 
 $dispatcher = new Dispatcher(array(
+	        array('^login$','autenticate::login',array()),
 	        array('^(?<name>\w*)$','test_control::index',array()),
 	        array('^all$','todo::all',array()),
 	        array('^admin/$','admin/index.php::index',array()),
