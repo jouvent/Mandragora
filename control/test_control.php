@@ -4,11 +4,12 @@ class TestControl
 {
     public function TestControl()
     {
-        echo 'dans le constructeur';
     }
-    public function index()
+    public function index($name = '')
     {
-        echo 'dans le constroleur';
-        return 'hello world!';
+        if(empty($name)){
+            $name = 'World';
+        }
+        return "<br />hello $name!";
     }
 }
