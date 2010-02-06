@@ -1,12 +1,12 @@
 <?php
 
 /* $routes is an array of arrays, each sub array must be 3 long with
- * - string $patern (any regexp patern that will be run against the query_string)
+ * - string $pattern (any regexp pattern that will be run against the query_string)
  * - string $location ( on the form <file_path>::<function_name>, both have to be valid)
  * - array  $params (any key/value pairs that will be passed to the controler function)
  */
-$paterns = array(
-        array('^$','test_control::index',array()),
+$patterns = array(
+        array('^(?<name>\w*)$','test_control::index',array()),
         array('^all$','todo::all',array()),
         array('^admin/$','admin/index.php::index',array()),
         // tache urls
@@ -29,12 +29,21 @@ $paterns = array(
     );
 
 
-/* return the first matching routes with matching additionnal param if any, return false if no match */
+/**
+ * route 
+ * 
+ * return the first matching routes with matching additionnal param if any
+ * return false if no match
+ * 
+ * @param mixed $url 
+ * @param array $routes 
+ * @access public
+ * @return void
+ */
 function route($url, array $routes){
     // enlever le premier / qui est innutile
     $url = substr($url,1);
     foreach($routes as $route){
-        //echo "dans boucle\n";
         if(is_array($options = match($url,$route[0]))){
             $route[2] = array_merge($route[2],$options);
             return $route;
@@ -43,16 +52,26 @@ function route($url, array $routes){
     return false;
 }
 
-/* return false on non matching patern, matched param (only associatives ones) if match */
-function match($url, $patern){
-    //echo "dans match $patern $url\n";
+/**
+ * match 
+ * 
+ * return false on non matching pattern, 
+ * return matched param (only associatives ones) if match
+ *
+ * @param mixed $url 
+ * @param mixed $pattern 
+ * @access public
+ * @return void
+ */
+function match($url, $pattern){
+    //echo "dans match $pattern $url\n";
     $options = array();
     $params = array();
 
     // antislash les slashes
-    $patern = str_replace('/','\\/',$patern);
+    $pattern = str_replace('/','\\/',$pattern);
 
-    if(preg_match("/$patern/",$url,$options)){
+    if(preg_match("/$pattern/",$url,$options)){
         //echo "match !!\n";
         foreach($options as $key => $value){
             //echo "teste $key => $value\n";
@@ -66,15 +85,24 @@ function match($url, $patern){
     return false;
 }
 
-/* include and run given route */
+/**
+ * load 
+ *
+ * include and run given route
+ * 
+ * @param array $route 
+ * @access public
+ * @return void
+ */
 function load(array $route){
     $location = explode('::',$route[1]);
 
     require_once('control/'.$location[0].'.php');
     $obj = file_to_class($location[0]);
-    $obj = new $obj;
     $function = $location[1];
-    return $obj->$function();
+    $refl = new ReflectionMethod($obj,$function);
+    echo $refl->invokeArgs(new $obj(),$route[2]);
+    //return $obj->$function();
     //call_user_func_array($location[1],$route[2]);
 }
 
