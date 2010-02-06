@@ -49,11 +49,11 @@ class UserDao {
      * for the real load-method which accepts the valueObject as a parameter. Returned
      * valueObject will be created using the createValueObject() method.
      */
-    function getObject(&$conn, $id) {
+    function getObject($conn, $id) {
 
           $valueObject = $this->createValueObject();
           $valueObject->setId($id);
-          $this->load(&$conn, &$valueObject);
+          $this->load($conn, $valueObject);
           return $valueObject;
     }
 
@@ -70,7 +70,7 @@ class UserDao {
      * @param valueObject  This parameter contains the class instance to be loaded.
      *                     Primary-key field must be set for this to work properly.
      */
-    function load(&$conn, &$valueObject) {
+    function load($conn, $valueObject) {
 
           if (!$valueObject->getId()) {
                //print "Can not select without Primary-Key!";
@@ -79,7 +79,7 @@ class UserDao {
 
           $sql = "SELECT * FROM users WHERE (id = ".$valueObject->getId().") "; 
 
-          if ($this->singleQuery(&$conn, $sql, &$valueObject))
+          if ($this->singleQuery($conn, $sql, $valueObject))
                return true;
           else
                return false;
@@ -95,12 +95,12 @@ class UserDao {
      *
      * @param conn         This method requires working database connection.
      */
-    function loadAll(&$conn) {
+    function loadAll($conn) {
 
 
           $sql = "SELECT * FROM users ORDER BY id ASC ";
 
-          $searchResults = $this->listQuery(&$conn, $sql);
+          $searchResults = $this->listQuery($conn, $sql);
 
           return $searchResults;
     }
@@ -120,7 +120,7 @@ class UserDao {
      *                     If automatic surrogate-keys are not used the Primary-key 
      *                     field must be set for this to work properly.
      */
-    function create(&$conn, &$valueObject) {
+    function create($conn, $valueObject) {
 
           $sql = "INSERT INTO users ( id, email, username, ";
           $sql = $sql."password, user_type_id, name) VALUES (".$valueObject->getId().", ";
@@ -129,7 +129,7 @@ class UserDao {
           $sql = $sql."'".$valueObject->getPassword()."', ";
           $sql = $sql."".$valueObject->getUserTypeId().", ";
           $sql = $sql."'".$valueObject->getName()."') ";
-          $result = $this->databaseUpdate(&$conn, $sql);
+          $result = $this->databaseUpdate($conn, $sql);
 
 
           return true;
@@ -147,7 +147,7 @@ class UserDao {
      * @param valueObject  This parameter contains the class instance to be saved.
      *                     Primary-key field must be set for this to work properly.
      */
-    function save(&$conn, &$valueObject) {
+    function save($conn, $valueObject) {
 
           $sql = "UPDATE users SET email = '".$valueObject->getEmail()."', ";
           $sql = $sql."username = '".$valueObject->getUsername()."', ";
@@ -155,7 +155,7 @@ class UserDao {
           $sql = $sql."user_type_id = ".$valueObject->getUserTypeId().", ";
           $sql = $sql."name = '".$valueObject->getName()."'";
           $sql = $sql." WHERE (id = ".$valueObject->getId().") ";
-          $result = $this->databaseUpdate(&$conn, $sql);
+          $result = $this->databaseUpdate($conn, $sql);
 
           if ($result != 1) {
                //print "PrimaryKey Error when updating DB!";
@@ -178,7 +178,7 @@ class UserDao {
      * @param valueObject  This parameter contains the class instance to be deleted.
      *                     Primary-key field must be set for this to work properly.
      */
-    function delete(&$conn, &$valueObject) {
+    function delete($conn, $valueObject) {
 
 
           if (!$valueObject->getId()) {
@@ -187,7 +187,7 @@ class UserDao {
           }
 
           $sql = "DELETE FROM users WHERE (id = ".$valueObject->getId().") ";
-          $result = $this->databaseUpdate(&$conn, $sql);
+          $result = $this->databaseUpdate($conn, $sql);
 
           if ($result != 1) {
                //print "PrimaryKey Error when updating DB!";
@@ -208,10 +208,10 @@ class UserDao {
      *
      * @param conn         This method requires working database connection.
      */
-    function deleteAll(&$conn) {
+    function deleteAll($conn) {
 
           $sql = "DELETE FROM users";
-          $result = $this->databaseUpdate(&$conn, $sql);
+          $result = $this->databaseUpdate($conn, $sql);
 
           return true;
     }
@@ -225,7 +225,7 @@ class UserDao {
      *
      * @param conn         This method requires working database connection.
      */
-    function countAll(&$conn) {
+    function countAll($conn) {
 
           $sql = "SELECT count(*) FROM users";
           $allRows = 0;
@@ -252,7 +252,7 @@ class UserDao {
      * @param valueObject  This parameter contains the class instance where search will be based.
      *                     Primary-key field should not be set.
      */
-    function searchMatching(&$conn, &$valueObject) {
+    function searchMatching($conn, $valueObject) {
 
           $first = true;
           $sql = "SELECT * FROM users WHERE 1=1 ";
@@ -295,7 +295,7 @@ class UserDao {
           if ($first)
                return array();
 
-          $searchResults = $this->listQuery(&$conn, $sql);
+          $searchResults = $this->listQuery($conn, $sql);
 
           return $searchResults;
     }
@@ -319,7 +319,7 @@ class UserDao {
      * @param conn         This method requires working database connection.
      * @param stmt         This parameter contains the SQL statement to be excuted.
      */
-    function databaseUpdate(&$conn, &$sql) {
+    function databaseUpdate($conn, $sql) {
 
           $result = $conn->execute($sql);
 
@@ -337,7 +337,7 @@ class UserDao {
      * @param stmt         This parameter contains the SQL statement to be excuted.
      * @param valueObject  Class-instance where resulting data will be stored.
      */
-    function singleQuery(&$conn, &$sql, &$valueObject) {
+    function singleQuery($conn, $sql, $valueObject) {
 
           $result = $conn->execute($sql);
 
@@ -365,7 +365,7 @@ class UserDao {
      * @param conn         This method requires working database connection.
      * @param stmt         This parameter contains the SQL statement to be excuted.
      */
-    function listQuery(&$conn, &$sql) {
+    function listQuery($conn, $sql) {
 
           $searchResults = array();
           $result = $conn->execute($sql);

@@ -3,8 +3,10 @@ include 'includes/lib/templating/h2o-php-0.4/h2o.php';
 
 class TestControl
 {
-    public function TestControl()
+	private $db;
+    public function TestControl($db)
     {
+    	$this->db = $db;
     }
     public function index($name = '')
     {

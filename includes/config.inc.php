@@ -1,3 +1,10 @@
 <?php
 
+define('DB_TYPE', 'mysql');
+define('DB_HOST', 'mysql.dev.mandragora.qc.ca');
+define('DB_NAME', 'mandragora_db_dev');
+define('DB_USER', 'mandrake_dev');
+define('DB_PASS', 'fA4hUphU');
+
+
 ?>
