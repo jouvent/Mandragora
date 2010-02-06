@@ -8,7 +8,7 @@ require_once('includes/lib/common/include_logic.php');
 require_once('includes/lib/database/datasource.php');
 
 /* Configuration include file */
-require_once('includes/lib/config.inc.php');
+require_once('includes/config.inc.php');
 
 /* Database models (VOs) */
 require_once('includes/lib/model/user.php');

@@ -180,28 +180,6 @@ class User {
         return $out;
     }
 
-
-    /**
-     * Clone will return identical deep copy of this valueObject.
-     * Note, that this method is different than the clone() which
-     * is defined in java.lang.Object. Here, the retuned cloned object
-     * will also have all its attributes cloned.
-     */
-    function clone() {
-        $cloned = new User();
-
-        $cloned->setId($this->id); 
-        $cloned->setEmail($this->email); 
-        $cloned->setUsername($this->username); 
-        $cloned->setPassword($this->password); 
-        $cloned->setUserTypeId($this->userTypeId); 
-        $cloned->setName($this->name); 
-
-        return $cloned;
-    }
-
-
-
     /** 
      * getDaogenVersion will return information about
      * generator which created these sources.
