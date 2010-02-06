@@ -2,7 +2,7 @@
 /*
  */
 
-require_once 'includes/base.inc.php';
+require_once('control/dispatcher.php');
 
 $route = route($_SERVER['REQUEST_URI'],$patterns);
 if(is_array($route)){

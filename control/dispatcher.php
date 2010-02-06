@@ -1,5 +1,7 @@
 <?php
 
+require_once 'includes/base.inc.php';
+
 /* $routes is an array of arrays, each sub array must be 3 long with
  * - string $pattern (any regexp pattern that will be run against the query_string)
  * - string $location ( on the form <file_path>::<function_name>, both have to be valid)
