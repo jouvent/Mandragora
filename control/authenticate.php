@@ -20,7 +20,7 @@ class Authenticate {
     		echo ($this->authentication->isValidUser($un, $pw) ? "VALID" : "INVALID");
 			
 		} else {
-			$h2o = new h2o('templates/layouts/login.html');
+			$h2o = new h2o('templates/login.html');
 			$salut = "Hello $name!";
        		return $h2o->render(array('salut'=>$salut));
 			

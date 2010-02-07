@@ -10,12 +10,11 @@ class TestControl
     public function index($name = '')
     {
         if(empty($name)){
-            $name = 'World';
+            $name = 'world';
         }
-        $h2o = new H2o('templates/test.html', array(
-        	'i18n' => array('locale' => 'en', 'extract_messages' => true)
+        $h2o = new h2o('templates/test.html', array(
+        	'i18n' => array('locale' => 'en', 'extract_messages'=> true)
         ));
-        $salut = "Hello $name!";
-        return $h2o->render(array('salut'=>$salut));
+        return $h2o->render(array('name'=>$name));
     }
 }

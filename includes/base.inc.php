@@ -7,7 +7,10 @@
 require_once('includes/lib/common/include_logic.php');
 require_once('includes/lib/common/string.php');
 require_once('includes/lib/database/datasource.php');
+
+/* Templating and internationalization */
 require_once('includes/lib/templating/h2o-php-0.4/h2o.php');
+h2o::load('i18n');
 
 /* Configuration include file */
 require_once('includes/config.inc.php');
