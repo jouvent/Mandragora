@@ -12,7 +12,9 @@ class TestControl
         if(empty($name)){
             $name = 'World';
         }
-        $h2o = new h2o('templates/layouts/test.html');
+        $h2o = new H2o('templates/test.html', array(
+        	'i18n' => array('locale' => 'en', 'extract_messages' => true)
+        ));
         $salut = "Hello $name!";
         return $h2o->render(array('salut'=>$salut));
     }
