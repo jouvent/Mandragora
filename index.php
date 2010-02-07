@@ -7,7 +7,7 @@ require_once('control/dispatcher.php');
 $db = new Datasource(DB_HOST, DB_NAME, DB_USER, DB_PASS);
 
 $dispatcher = new Dispatcher($db, array(
-	        array('^login$','autenticate::login',array()),
+	        array('^login$','authenticate::login',array()),
 	        array('^(?<name>\w*)$','test_control::index',array()),
 	        array('^all$','todo::all',array()),
 	        array('^admin/$','admin/index.php::index',array()),

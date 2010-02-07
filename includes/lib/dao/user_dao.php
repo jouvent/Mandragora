@@ -122,9 +122,8 @@ class UserDao {
      */
     function create($conn, $valueObject) {
 
-          $sql = "INSERT INTO users ( id, email, username, ";
-          $sql = $sql."password, user_type_id, name) VALUES (".$valueObject->getId().", ";
-          $sql = $sql."'".$valueObject->getEmail()."', ";
+          $sql = "INSERT INTO users ( email, username, ";
+          $sql = $sql."password, user_type_id, name) VALUES (".$valueObject->getEmail()."', ";
           $sql = $sql."'".$valueObject->getUsername()."', ";
           $sql = $sql."'".$valueObject->getPassword()."', ";
           $sql = $sql."".$valueObject->getUserTypeId().", ";
