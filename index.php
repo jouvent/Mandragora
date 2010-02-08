@@ -8,9 +8,16 @@ session_start();
 $db = new Datasource(DB_HOST, DB_NAME, DB_USER, DB_PASS);
 
 $dispatcher = new Dispatcher($db, array(
-	        array('^login$','authenticate::login',array()),
+	        array('^login$','authenticate::byForm',array()),
+	        array('^openid$','authenticate::byOpenId',array()),
+	        array('^logout$','authenticate::revoke',array()),
+	        array('^register$','register::byForm',array()),
 	        array('^$','main::index',array()),
-	        array('^(?<name>\w*)$','test_control::index',array()),
+	        array('^(?<name>\w*)$','test_control::index',array())
+	    )
+	);
+
+/*
 	        array('^all$','todo::all',array()),
 	        array('^admin/$','admin/index.php::index',array()),
 	        // tache urls
@@ -30,9 +37,8 @@ $dispatcher = new Dispatcher($db, array(
 	        array('^admin/page/edit/(?<id>\d*)','pages::edit',array()),
 	        array('^admin/page/del/(?<id>\d*)','pages::del',array()),
 	        array('^(?<key>\w+)$','pages::show',array()),
-	    )
-	);
-
+ */	
+	
 $route = $dispatcher->route($_SERVER['REQUEST_URI']);
 if(is_array($route)){
     echo $dispatcher->load($route);

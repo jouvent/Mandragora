@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: template translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-07 19:37-0500\n"
+"POT-Creation-Date: 2010-02-08 15:44-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -15,11 +15,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: /home/danidou/Aptana Studio
-#: Workspace/Mandragora/templates/layouts/base.html:2
-msgid "Hello"
-msgstr "Bonjour"
+#: Workspace/Mandragora/templates/login_form.html:2
+msgid "What are you trying to reach, with your"
+msgstr ""
 
 #: /home/danidou/Aptana Studio
-#: Workspace/Mandragora/templates/layouts/base.html:5
+#: Workspace/Mandragora/templates/login_form.html:3
+msgid "craziness?!?"
+msgstr ""
+
+#: /home/danidou/Aptana Studio
+#: Workspace/Mandragora/templates/login_form.html:6
 msgid "login"
 msgstr "connexion"
+
+#~ msgid "Hello"
+#~ msgstr "Bonjour"
