@@ -3,11 +3,13 @@
  */
 
 require_once('control/dispatcher.php');
+session_start();
 
 $db = new Datasource(DB_HOST, DB_NAME, DB_USER, DB_PASS);
 
 $dispatcher = new Dispatcher($db, array(
 	        array('^login$','authenticate::login',array()),
+	        array('^$','main::index',array()),
 	        array('^(?<name>\w*)$','test_control::index',array()),
 	        array('^all$','todo::all',array()),
 	        array('^admin/$','admin/index.php::index',array()),

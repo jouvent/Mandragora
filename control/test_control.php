@@ -12,9 +12,16 @@ class TestControl
         if(empty($name)){
             $name = 'world';
         }
-        $h2o = new h2o('templates/test.html', array(
-        	'i18n' => array('locale' => 'en', 'extract_messages'=> true)
+        $h2o = new H2o('templates/test.html', array(
+		    'i18n' => array(
+		        'locale' => 'fr',
+		        'charset' => 'UTF-8',
+		        'gettext_path' => '/usr/bin/',
+		        'extract_message' => true,
+		        'compile_message' => true
+		    )
         ));
+                
         return $h2o->render(array('name'=>$name));
     }
 }

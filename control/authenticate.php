@@ -15,14 +15,19 @@ class Authenticate {
 		$this->authentication = new Authentication($db);
 	}
 	
-    function login($un = '', $pw = '') {
-    	if (!empty($un) && !empty($pw)) {
-    		echo ($this->authentication->isValidUser($un, $pw) ? "VALID" : "INVALID");
-			
-		} else {
+    function login() {
+	    if(isset($_POST['submit'])) {
+    		if ($this->authentication->isValidUser($_POST['username'], $_POST['password'])) {
+    			$_SESSION['username'] = $_POST['username'];
+    			header('Location: ' . SITE_URL . '/');
+    		} else {
+    			echo "ERROR MESSAGE";
+    			// error message
+    		}
+		}
+		else {
 			$h2o = new h2o('templates/login.html');
-			$salut = "Hello $name!";
-       		return $h2o->render(array('salut'=>$salut));
+			return $h2o->render();
 			
 		}
 		

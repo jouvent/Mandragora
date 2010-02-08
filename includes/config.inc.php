@@ -1,5 +1,6 @@
 <?php
 
+define('SITE_URL', 'http://localhost');
 define('DB_TYPE', 'mysql');
 //define('DB_HOST', 'mysql.dev.mandragora.qc.ca');
 define('DB_HOST', 'localhost');
