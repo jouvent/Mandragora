@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html' %}
+
+{% block body %}
+<form action="/register" method="POST" class="standard_form">
+<label for="login">
+	Login<br/>
+	<input type="text" class="text" id="username_field" name="username" tabindex="1" value="" />
+</label>
+<label for="password">
+	Password<br/>
+	<input type="password" class="text" id="password_field" name="password" tabindex="2" value="" />
+</label>
+<label>
+	<input type="submit" class="submit" name="submit" tabindex="3" value="Register" />
+</label>
+</form>
+{% endblock %}
