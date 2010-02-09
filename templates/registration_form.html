@@ -4,16 +4,16 @@
 <form action="/register" method="POST" id="registration_form" class="standard_form">
 
 	<label for="login">Username</label>
-	<input type="text" class="required" minlength="4" id="username_field" name="username" tabindex="1" value="" />
+	<input type="text" class="required" minlength="4" maxlength="45" id="username_field" name="username" tabindex="1" value="" />
 
 	<label for="password">Password</label>
-	<input type="password" class="required" minlength="6" id="password_field" name="password" tabindex="2" value="" />
+	<input type="password" class="required" minlength="6" maxlength="16" id="password_field" name="password" tabindex="2" value="" />
 
 	<label for="real_name">Real name</label>
-	<input type="text" class="required" id="realname_field" name="realname" tabindex="3" value="" />
+	<input type="text" class="required" maxlength="45" id="realname_field" name="realname" tabindex="3" value="" />
 
 	<label for="real_name">Email</label>
-	<input type="text" class="required email" id="email_field" name="email" tabindex="4" value="" />
+	<input type="text" class="required email" maxlength="255" id="email_field" name="email" tabindex="4" value="" />
 
 	<input type="submit" class="submit" name="submit" tabindex="6" value="Register" />
 </form>
