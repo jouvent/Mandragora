@@ -39,7 +39,7 @@ class Register {
 		else if (isset($_POST['email'])) {
 			$email = $_POST['email'];
 			if ($this->registration->emailAlreadyExists($email)) {
-				echo json_encode("This email is already taken.  Please user another one.");
+				echo json_encode("This email is already taken.  Please use another one.");
 			} else {
 				echo json_encode(true);
 			}
