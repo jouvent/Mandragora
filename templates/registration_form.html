@@ -1,17 +1,53 @@
 {% extends 'layouts/base.html' %}
 
 {% block body %}
-<form action="/register" method="POST" class="standard_form">
-<label for="login">
-	Login<br/>
-	<input type="text" class="text" id="username_field" name="username" tabindex="1" value="" />
-</label>
-<label for="password">
-	Password<br/>
-	<input type="password" class="text" id="password_field" name="password" tabindex="2" value="" />
-</label>
-<label>
-	<input type="submit" class="submit" name="submit" tabindex="3" value="Register" />
-</label>
+<form action="/register" method="POST" id="registration_form" class="standard_form">
+
+	<label for="login">Username</label>
+	<input type="text" class="required" minlength="4" id="username_field" name="username" tabindex="1" value="" />
+
+	<label for="password">Password</label>
+	<input type="password" class="required" minlength="6" id="password_field" name="password" tabindex="2" value="" />
+
+	<label for="real_name">Real name</label>
+	<input type="text" class="required" id="realname_field" name="realname" tabindex="3" value="" />
+
+	<label for="real_name">Email</label>
+	<input type="text" class="required email" id="email_field" name="email" tabindex="4" value="" />
+
+	<input type="submit" class="submit" name="submit" tabindex="6" value="Register" />
 </form>
+<script type="text/javascript" language="JavaScript">
+  $(document).ready(function(){
+    $("#registration_form").validate({
+		rules: {
+			email: {
+				required: true,
+				email: true,
+				remote: {
+					url: "register",
+					type: "post",
+					data: {
+						email: function() {
+							return $("#email_field").val();
+						}
+					}
+				}
+			},
+			username: {
+				required: true,
+				remote: {
+					url: "register",
+					type: "post",
+					data: {
+						username: function() {
+							return $("#username_field").val();
+						}
+					}
+				}
+			}			
+		}
+	});
+  });
+</script>
 {% endblock %}

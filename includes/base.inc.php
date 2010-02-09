@@ -23,6 +23,7 @@ require_once('includes/lib/dao/user_dao.php');
 
 /* Business Logic */
 require_once('includes/lib/logic/authentication.php');
+require_once('includes/lib/logic/registration.php');
 
 
 

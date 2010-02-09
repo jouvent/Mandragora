@@ -123,7 +123,7 @@ class UserDao {
     function create($conn, $valueObject) {
 
           $sql = "INSERT INTO users ( email, username, ";
-          $sql = $sql."password, user_type_id, name) VALUES (".$valueObject->getEmail()."', ";
+          $sql = $sql."password, user_type_id, name) VALUES ('".$valueObject->getEmail()."', ";
           $sql = $sql."'".$valueObject->getUsername()."', ";
           $sql = $sql."'".$valueObject->getPassword()."', ";
           $sql = $sql."".$valueObject->getUserTypeId().", ";
@@ -263,17 +263,17 @@ class UserDao {
 
           if ($valueObject->getEmail() != "") {
               if ($first) { $first = false; }
-              $sql = $sql."AND email LIKE '".$valueObject->getEmail()."%' ";
+              $sql = $sql."AND email = '".$valueObject->getEmail()."' ";
           }
 
           if ($valueObject->getUsername() != "") {
               if ($first) { $first = false; }
-              $sql = $sql."AND username LIKE '".$valueObject->getUsername()."%' ";
+              $sql = $sql."AND username = '".$valueObject->getUsername()."' ";
           }
 
           if ($valueObject->getPassword() != "") {
               if ($first) { $first = false; }
-              $sql = $sql."AND password LIKE '".$valueObject->getPassword()."%' ";
+              $sql = $sql."AND password = '".$valueObject->getPassword()."' ";
           }
 
           if ($valueObject->getUserTypeId() != 0) {
@@ -283,7 +283,7 @@ class UserDao {
 
           if ($valueObject->getName() != "") {
               if ($first) { $first = false; }
-              $sql = $sql."AND name LIKE '".$valueObject->getName()."%' ";
+              $sql = $sql."AND name = '".$valueObject->getName()."' ";
           }
 
 
