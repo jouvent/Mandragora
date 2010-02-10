@@ -39,7 +39,7 @@ Useful links
  * Please submit enhancement requests or bug reports to our [trac bug/issue tracker][trac]
  * You can follow the development on our [official project blog][blog]
  
- [issue]:http://trac.mandragora.qc.ca
+ [trac]:http://trac.mandragora.qc.ca
  [blog]:http://blog.mandragora.qc.ca
 
 
