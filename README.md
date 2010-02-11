@@ -86,7 +86,7 @@ Special thanks to the players who inspired this project: Marie-Ève Fournelle, M
 
 The MIT License
 ------------------------
-Copyright (c) 2008 Taylor Luk 
+Copyright (c) 2010 Daniel LeBlanc, Julien Jouvent-Hallé, François Bradette
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
