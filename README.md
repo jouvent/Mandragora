@@ -7,9 +7,12 @@ Mandragora is an open-source web application designed to manage role-playing gam
 Its purpose is to help the game masters manage the nuts and bolts of their games, 
 allowing their mind to concentrate purely on gameplay.
 
-Requirement
+Requirements
 ------------------------
-Requirements to come.
+ - PHP 5.2 (built/tested on 5.2.6)
+ - MySQL 5.0 (built/tested on 5.0.16)
+ - Apache 2
+ - GetText
 
 News
 ------------------------
@@ -45,15 +48,41 @@ Useful links
 
 Known issues
 ------------------------
-Known issues to come.
+ - No known issue at this point.
 
 Credit
 ------------------------
-Credits to come.
+### Developers
+ - [Daniel LeBlanc][Daniel LeBlanc]
+ - [Julien Jouvent-Hallé][Julien Jouvent-Hallé]
+ - [François Bradette][François Bradette]
+
+ [Daniel LeBlanc]:mailto:danidou@gmail.com
+ [Julien Jouvent-Hallé]:mailto:julienhalle@gmail.com
+ [François Bradette]:mailto:francoisbradette@gmail.com
+
+### Testers
+ - Elias Chamma
+
+### Libraries
+ - [Taylor luk][Taylor luk]
+ - [John Resig][John Resig] and the [JQuery Team][JQuery Team]
+
+ [Taylor luk]:mailto:taylor.luk@idealian.net
+ [John Resig]:http://ejohn.org/
+ [JQuery Team]:http://docs.jquery.com/Contributors
 
 Special thanks
 ------------------------
-Special thanks to come.
+Special thanks to the players who inspired this project: Marie-Ève Fournelle, Michaël Lafreniere, Julien Jouvent-Hallé and Eloi Paquette; to the fuel that allows us to hit [Ballmer Peak]: [Griffon Red Ale][Griffon Red Ale], [Rockstar Energy Drinks] and [Fair Trade Coffee]; to [UQAM], and more specifically to [AGEEI-UQAM], for promoting uncompromising excellence to a new generation of developers.
+
+[Griffon Red Ale]:http://www.mcauslan.com/en/ourbeers/griffon_red.htm
+[Rockstar Energy Drinks]:http://www.rockstar69.com
+[Fair Trade Coffee]:http://transfair.ca
+[Ballmer Peak]:http://xkcd.com/323
+[UQAM]:http://www.uqam.ca
+[AGEEI-UQAM]:http://www.ageei.org
+
 
 The MIT License
 ------------------------
