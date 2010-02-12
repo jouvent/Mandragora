@@ -20,18 +20,19 @@ class Authenticate {
 	 * @return void
 	 */
     function byForm() {
+    	$h2o = new h2o('templates/login_form.html');
 	    if(isset($_POST['submit'])) {
     		if ($this->authentication->isValidUser($_POST['username'], $_POST['password'])) {
     			$_SESSION['username'] = $_POST['username'];
     			$_SESSION['authentication_type'] = "form";
     			header('Location: ' . SITE_URL . '/');
     		} else {
-    			echo "ERROR MESSAGE";
+    			return $h2o->render(array("err_msg"=>"Username or password invalid."));
     			// error message
     		}
 		}
 		else {
-			$h2o = new h2o('templates/login_form.html');
+			
 			return $h2o->render();
 			
 		}
