@@ -1,4 +1,9 @@
 {% extends 'layouts/base.html' %}
+{% block menu %}
+<ul id="nav">
+    <li><a href="/login">{% trans "login" %}</a></li>
+</ul>
+{% endblock %}
 
 {% block body %}
 <form action="/register" method="POST" id="registration_form" class="standard_form">

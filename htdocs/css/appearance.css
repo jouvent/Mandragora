@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+html, body {
+ font: 12px Verdana, Geneva, Arial, Helvetica, sans-serif;
+ color:#1f1b13;
+ background-color: #1f1b13;
+} 
+ 
+#main {
+ color: #3f3627;
+ border: 4px solid #3f3627;
+ background-image: url(/htdocs/images/bg.jpg);
+ background-repeat: repeat;
+}
+
+#menu { background-color: #3f3627; }
+
+#menu ul, #menu ul li { background: transparent;  }
+
+#menu ul li a:link, #menu ul li a:visited { color: #7F91B0; }
+#menu ul li a:hover, #menu ul li a:active { color: #ece4d7; }
+ 
+#footer {
+ padding-top: 5px;
+ color: #7E6C4E;
+ font-size: 80%;
+}
+
+h1 {
+ font: 1.8em/1 Palatino, serif;
+ font-weight: 900;
+ font-style: italic;
+ color: #1f1b13;
+}
+
+h2 {
+ font: 1.1em/1 Palatino, serif;
+ font-weight: 700;
+ color: #1f1b13;
+}
+
+h3 {
+ font-size: 1em;
+ font-weight: 800;
+ margin: 3em 0 .35em;
+ color: #1f1b13;
+}
+
+a { text-decoration: none; font-weight: 600; }
+a:link, a:visited { color: #4D5F7D; }
+a:hover, a:active { color: #7F91B0;}
+
+label { font-size: 110%; display: block; margin: 0; margin-top: 1em; }
+label.error { padding: 0; margin: 0; vertical-align: top; color: red; }
+input[type=text] { width: 400px; font-size: 125%; height: 28px; padding: 7px 0 0 4px; border: none; background-color: #fff; filter: alpha(opacity=50); opacity: 0.5; font-weight: bold; }
+input[type=password] { width: 400px; font-size: 125%; height: 28px; padding: 7px 0 0 4px; border: none; background-color: #fff; filter: alpha(opacity=50); opacity: 0.5; font-weight: bold; }
+input.submit { width: auto; padding: .1em 1em; display: block; margin-top: 2em; font-weight: normal; font-size: 110%; }
+input.password { width: 300px; float: left; }

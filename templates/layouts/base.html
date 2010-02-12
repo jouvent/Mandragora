@@ -4,26 +4,27 @@
 
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<title>{% block title %}Mandragora{% endblock %}</title>
-<link rel="stylesheet" type="text/css" href="/htdocs/css/common.css" title="presentation styles" />
+<title>{% block title %}Mandragora - RPG Manager{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="/htdocs/css/structure.css" title="presentation styles" />
+<link rel="stylesheet" type="text/css" href="/htdocs/css/appearance.css" title="presentation styles" />
 <script type="text/javascript" language="JavaScript" src="/htdocs/js/jquery/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" language="JavaScript" src="/htdocs/js/jquery/jquery.validate.min.js"></script>
 </head>
 
 <body>
-
-<div id="Content">
-<ul id="nav">
-    <li><a href="/login">{% trans "login" %}</a></li>
-	<li><a href="/register">{% trans "register" %}</a></li>
-</ul>
-{% block body %}
-{% endblock %}
-<div style="color: #FF0000;">
-{% block debug %}
-{% endblock %}
+<div id="pagewidth">
+	<div id="header"><img src="/htdocs/images/title_banner.png" alt="Mandragora - RPG Manager"/></div>
+	<div id="wrapper" class="clearfix">
+		<div id="main" >
+			<div id="menu">{% block menu %}{% endblock %}</div>
+			<div id="content">{% block body %}{% endblock %}</div>
+		</div> 
+	</div>
+	<div id="footer">
+		<div>{% block copyright %}Mandragora RPG Manager &copy; 2010 Daniel LeBlanc, Julien Jouvent-Hallé, François Bradette.{% endblock %}</div>
+		<div>{% block debug %}{% endblock %}</div>
+	</div>
 </div>
-</div>
-
 </body>
 </html>
+	

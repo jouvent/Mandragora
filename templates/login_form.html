@@ -1,4 +1,9 @@
 {% extends 'layouts/base.html' %}
+{% block menu %}
+<ul>
+	<li><a href="/register">{% trans "register" %}</a></li>
+</ul>
+{% endblock %}
 {% block body %}
 <form action="/login" method="POST" class="standard_form" id="login_form">
 <div style="color: #FF0000;">{{ err_msg }}</div>
