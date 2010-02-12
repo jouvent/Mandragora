@@ -4,6 +4,7 @@ class Authenticate {
 	
 	private $db;
 	private $authentication;
+	private $fields;
 
 	/**
 	 * Constructor
@@ -13,6 +14,7 @@ class Authenticate {
 	function Authenticate($db) {
 		$this->db = $db;
 		$this->authentication = new Authentication($db);
+		$this->fields = array("version"=>VERSION);
 	}
 	
 	/**
@@ -27,13 +29,14 @@ class Authenticate {
     			$_SESSION['authentication_type'] = "form";
     			header('Location: ' . SITE_URL . '/');
     		} else {
-    			return $h2o->render(array("err_msg"=>"Username or password invalid."));
+    			$this->fields["err_msg"] = "Username or password invalid.";
+    			return $h2o->render($this->fields);
     			// error message
     		}
 		}
 		else {
 			
-			return $h2o->render();
+			return $h2o->render($this->fields);
 			
 		}
 		

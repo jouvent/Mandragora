@@ -4,6 +4,7 @@ class Register {
 	
 	private $db;
 	private $registration;
+	private $fields;
 
 	/**
 	 * Constructor
@@ -13,6 +14,7 @@ class Register {
 	function Register($db) {
 		$this->db = $db;
 		$this->registration = new Registration($db);
+		$this->fields = array("version"=>VERSION);
 	}
 	
 	/**
@@ -46,7 +48,7 @@ class Register {
 		}		
 		else {
 			$h2o = new h2o('templates/registration_form.html');
-			return $h2o->render();
+			return $h2o->render($this->fields);
 			
 		}
 		

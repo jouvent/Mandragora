@@ -3,9 +3,11 @@
 class Main {
 	
 	private $db;
+	private $fields;
 	
 	public function Main($db) {
 		$this->db = $db;
+		$this->fields = array("version"=>VERSION);
 	}
 	
 	public function index() {
@@ -16,10 +18,11 @@ class Main {
 			
 			$userInfo = new UserInfo($this->db);
 			
-			$email = $userInfo->getEmail($username);
+			$this->fields["username"] = $username;
+			$this->fields["email"] = $userInfo->getEmail($username);
 			
 			$h2o = new h2o('templates/main_page.html');
-			return $h2o->render(array('username'=>$username, 'email'=>$email));
+			return $h2o->render($this->fields);
 		}
 	}
 	
