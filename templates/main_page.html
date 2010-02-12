@@ -2,7 +2,6 @@
 
 {% block body %}
 <h1>Main page of {{ username }}</h1>
-
+<div>{% gravatar :email 180 %}</div>
 <a href="/logout">logout</a>
-
 {% endblock %}

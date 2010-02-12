@@ -11,6 +11,8 @@ require_once('includes/lib/database/datasource.php');
 /* Templating and internationalization */
 require_once('includes/lib/templating/h2o-php-0.4/h2o.php');
 h2o::load('i18n');
+h2o::load('design');
+h2o::load('gravatar');
 
 /* Configuration include file */
 require_once('includes/config.inc.php');
@@ -24,6 +26,7 @@ require_once('includes/lib/dao/user_dao.php');
 /* Business Logic */
 require_once('includes/lib/logic/authentication.php');
 require_once('includes/lib/logic/registration.php');
+require_once('includes/lib/logic/user_info.php');
 
 
 

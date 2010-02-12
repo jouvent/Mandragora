@@ -5,7 +5,7 @@ class Registration {
 	private $conn;
 	private $userDao;
 	
-	function Registration($conn) {
+	function __construct($conn) {
 		$this->conn = $conn;
 		$this->userDao = new UserDao();
 	}

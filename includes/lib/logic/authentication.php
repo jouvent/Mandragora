@@ -6,7 +6,7 @@ class Authentication {
 	private $userVo;
 	private $userDao;
 	
-	function Authentication($conn) {
+	function __construct($conn) {
 		$this->conn = $conn;
 		$this->userDao = new UserDao();
 	}
