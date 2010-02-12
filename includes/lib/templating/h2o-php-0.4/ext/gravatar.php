@@ -17,9 +17,10 @@ class Gravatar_Tag extends H2o_Node {
     
     function render($context, $stream) {
     	$context->push();
-    	$email = $context->resolve($this->email);
+    	if (substr($this->email, 0, 1) == ":")
+    		$this->email = $context->resolve($this->email);
     	$output = '<img src="http://www.gravatar.com/avatar/'.
-    		(!empty($email) ? md5($email) . '.jpg' : '') .
+    		(!empty($this->email) ? md5($this->email) . '.jpg' : '') .
     		'?s='.$this->img_size.'" alt="gravatar-image"/>';
  
     	$context->pop();
