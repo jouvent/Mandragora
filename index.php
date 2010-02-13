@@ -12,8 +12,7 @@ $dispatcher = new Dispatcher($db, array(
 	        array('^openid$','authenticate::byOpenId',array()),
 	        array('^logout$','authenticate::revoke',array()),
 	        array('^register$','register::byForm',array()),
-	        array('^$','main::index',array()),
-	        array('^(?<name>\w*)$','test_control::index',array())
+	        array('^$','main::index',array())
 	    )
 	);
 
@@ -43,7 +42,12 @@ $route = $dispatcher->route($_SERVER['REQUEST_URI']);
 if(is_array($route)){
     echo $dispatcher->load($route);
 } else {
-    echo '404 pas de routes';
+	$h2o = new h2o('templates/errors/error_page.html');
+	$fields = array('version'=>VERSION);
+	$fields['errorType'] = '404';
+	$fields['errorMessage'] = 'You\'re trying to do something which requires a shovel and fire. And you have neither...';
+	echo $h2o->render($fields);
+	
 }
 
 

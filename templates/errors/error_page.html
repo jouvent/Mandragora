@@ -1,8 +1,15 @@
-{% extends 'layouts/base.html' %}
+{% extends '../layouts/base.html' %}
 
 {% block body %}
-<h1>Error {{ errorType }}</h1>
 
-{{ errorMessage }}
+
+<table><tr>
+	<td><img style="height: 300px;" src="/htdocs/images/{{errorType}}.jpg" alt="{{ErrorType}}"/></td>
+	<td style="vertical-align: top; padding-left: 10px;">
+		<h1 style="color: red; ">Error {{ errorType }}</h1>
+		<h2 style="font-size: 150%; ">{{ errorMessage }}</h2>
+	</td>
+</tr></table>
+
 
 {% endblock %}
